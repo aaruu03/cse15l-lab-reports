@@ -6,6 +6,9 @@
 
 - However, if it is not already installed on your device, you can open the link [Install VSCode](https://code.visualstudio.com/download) and install it from there
 
+- This is my VSCode application open
+![Image](vscode.png)
+
 ## Remotely Connecting
 
 - This took a sec because I was having issues while logging in after changing my password for the cs15lfa22 account
