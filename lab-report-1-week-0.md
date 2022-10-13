@@ -72,3 +72,14 @@
 - After entering the passphrase I created earlier, it instantly logs me in to the remote server --> much faster than earlier!
 
 ![Image](ssh-key-success.png)
+
+## Optimizing Remote Running
+There are a couple tricks that you can use to make remote running a lot smoother and easier for you!
+
+For example, if you have to run a few commands multiple times, typing them out can be a hassle and take a lot of time especially if they're super long. However, if you type them out once– and then when you need to run them again, you can just use your arrow keys (up and down) to look at previous and recent commands you've run.
+
+You can also run multiple commands in one line by adding a semi-colon to separate commands like this: `$ javac WhereAmI.java; java WhereAmI`
+
+These were the most useful commands I used. There is also another trick that allows you to run a command on the remote server and then log you you after: `ssh cs15lfa22@ieng6.ucsd.edu "ls"`, this is done by entering the command you want to run in quotes after the ssh command.
+
+I personally did not use this, as a I preferred doing it the long way, but it might be helpful in other projects/situations!
