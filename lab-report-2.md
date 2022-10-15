@@ -57,3 +57,45 @@ Finally, I tried searching for the substring "apple" which then returned both th
 For search, it was a a similar process where we checked if search existed in the path and then checked the parameters but this time instead of adding the word the user inputted to the list, we use it to search through our list using a loop and return all the words that contain the string the user chose.
 
 ## Part 2
+
+The first file with a bug  was from the ArrayExamples.java.
+This was the code from the first method.
+```
+static void reverseInPlace(int[] arr) {
+    for(int i = 0; i < arr.length; i += 1) {
+      arr[i] = arr[arr.length - i - 1];
+    }
+  }
+```
+The failing output was that the array only flipped half of the array and left the original at the end. For example, if the input was an array {1, 2, 3, 4, 5} then the flipped one was {5, 4, 3, 4, 5}. This was because the loop went through all the indexes without keeping track of the original so the data was lost during the reversal.
+
+To fix that, you would need to keep track of the original array using a temporary variable so that it would not overwrite the rest of the array. 
+
+The second file's method is as follows"
+```static List<String> merge(List<String> list1, List<String> list2) {
+    List<String> result = new ArrayList<>();
+    int index1 = 0, index2 = 0;
+    while(index1 < list1.size() && index2 < list2.size()) {
+      if(list1.get(index1).compareTo(list2.get(index2)) < 0) {
+        result.add(list1.get(index1));
+        index1 += 1;
+      }
+      else {
+        result.add(list2.get(index2));
+        index2 += 1;
+      }
+    }
+    while(index1 < list1.size()) {
+      result.add(list1.get(index1));
+      index1 += 1;
+    }
+    while(index2 < list2.size()) {
+      result.add(list2.get(index2));
+      index1 += 1;
+    }
+    return result;
+  }
+```
+The failure inducing input was when I tried entering null as one of the arguments for the merge method. The symptom was the terminal/output giving an error to the user for the null value.
+
+This was because the method did not have any measures to take against null values and it was not able to handle it correctly. To fix this, the method needs to have another if statement that checks against null statements and is able to catch it and let the user know instead of just failing.
